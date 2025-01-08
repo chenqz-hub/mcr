@@ -1,0 +1,5 @@
+# requirements.txt
+pytesseract
+pandas
+Pillow
+opencv-python

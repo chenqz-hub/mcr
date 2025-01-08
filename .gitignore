@@ -1,0 +1,14 @@
+# .gitignore
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore temporary files
+*.pyc
+*.log
+*.tmp
+.DS_Store
+
+# Ignore data files
+output/
+pics/
