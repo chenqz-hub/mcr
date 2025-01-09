@@ -1,5 +1,9 @@
 # requirements.txt
-pytesseract
-pandas
-Pillow
-opencv-python
+
+pytesseract==0.3.13
+pandas==2.2.0
+Pillow==10.4.0
+opencv-python==4.10.0.84
+tqdm==4.66.4
+paddleocr==2.9.1
+paddlepaddle==2.6.2

@@ -1,9 +1,16 @@
 # src/main.py
 import os
-import pandas as pd
-from datetime import datetime
+import sys
+
+# Dynamically add project root directory to module search path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from src.ocr_utils import extract_text_from_image
 from src.file_utils import list_png_files
+
+import pandas as pd
+from datetime import datetime
+from tqdm import tqdm
 
 def main():
     input_dir = "pics"
@@ -13,15 +20,24 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    # Get all PNG files in the input directory
-    png_files = list_png_files(input_dir)
+    try:
+        # Get all PNG files in the input directory
+        png_files = list_png_files(input_dir)
+        if not png_files:
+            print("No PNG files found in the input directory.")
+            return
+    except Exception as e:
+        print(f"Error listing files: {e}")
+        return
 
     # Process each PNG file
     results = []
-    for file in png_files:
-        print(f"Processing {file}...")
-        text = extract_text_from_image(file)
-        results.append({"file": os.path.basename(file), "content": text})
+    for file in tqdm(png_files, desc="Processing images"):
+        try:
+            text = extract_text_from_image(file)
+            results.append({"file": os.path.basename(file), "content": text})
+        except Exception as e:
+            print(f"Error processing file {file}: {e}")
 
     # Generate output CSV file name with timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

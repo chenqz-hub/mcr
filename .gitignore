@@ -1,6 +1,6 @@
 # .gitignore
 # Ignore virtual environments
-venv/
+.venv/
 env/
 
 # Ignore temporary files
@@ -12,3 +12,6 @@ env/
 # Ignore data files
 output/
 pics/
+
+# Ignore log output (if any)
+log_output/

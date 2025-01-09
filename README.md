@@ -1,3 +1,4 @@
+<!-- README.md -->
 # OCR Project for Medical Case Images
 
 ## Project Overview
@@ -29,5 +30,6 @@ This project processes medical case images stored in the `pics` directory using 
 3. The extracted text will be saved in a timestamped CSV file in the `output` directory.
 
 ## Notes
-- Ensure the `pics` directory contains valid PNG images.
+- Ensure the pics directory contains valid PNG images.
 - Tesseract must be configured for Chinese OCR (lang="chi_sim").
+- Logs are minimized for a cleaner terminal output.
