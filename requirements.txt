@@ -1,5 +1,5 @@
 # requirements.txt
-
+# additional software: Tesseract-OCR, Tesseract-OCR-chi-sim, Tesseract-OCR-eng
 pytesseract==0.3.13
 pandas==2.2.0
 Pillow==10.4.0
